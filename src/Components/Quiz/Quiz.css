@@ -1,0 +1,15 @@
+
+
+.quiz .mdc-list-item__text, .mdc-form-field, .mdc-list-item{
+    overflow: visible;
+    list-style: none;
+}
+
+.quiz ~ .mdc-button{
+    display: flex;
+    flex-direction: column;
+}
+
+form ul li{
+    margin-top: 70px
+}
