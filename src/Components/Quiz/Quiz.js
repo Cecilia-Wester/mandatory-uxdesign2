@@ -3,12 +3,13 @@ import { Helmet } from 'react-helmet-async';
 import axios from 'axios';
 import './Quiz.css';
 import html from 'react-inner-html';
-//import Dialog  from '../Dialog.Dialog';
+import Dialog from '../Dialog/Dialog';
 
 export default function Quiz (score){
     const [answers, setAnswers] = useState(new Array(10).fill(true));
     const [questions, setQuestions] = useState(null);
     const [correctAnswers, setCorrectAnswers] = useState([]);
+    const [dialog, setDialog] = useState('false')
     
     useEffect(() => {
         axios.get('https://opentdb.com/api.php?amount=10&type=boolean')
@@ -33,19 +34,22 @@ export default function Quiz (score){
         console.log(correctAnswers)
     }
     
-    // function onChange(index, e){
+    // function onChange(name, e){
     //     e.preventDefault();
     //     console.log(index)
     //     setAnswers(!answers)
-    //     for(let i = 0; i <10; i++){
-    //         if(correctAnswers === answers){
-    //             score += 1
-    //         }
-    //     }
+    //     
     // }
     
-    function onSubmit(){
-        //<Dialog score={score}/>
+    function onSubmit(score, e){
+        e.preventDefault();
+
+        for(let i = 0; i <10; i++){
+            if(correctAnswers === answers){
+                score += 1
+            }
+        }
+        setDialog(true)
     }
 
     function MyComponent( question ) {
@@ -115,6 +119,7 @@ export default function Quiz (score){
                 </button>
             </form>
             }
+            {dialog && <Dialog onClose={() => setDialog(false)}/>}
         </div>
     )
 }

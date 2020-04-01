@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Link, Redirect} from "react-router-dom";
 import { Helmet } from 'react-helmet-async';
 import Header from '../Header/Header';
-import './Main.css'
+import './Main.css';
 
 export default function Main (){
     return(

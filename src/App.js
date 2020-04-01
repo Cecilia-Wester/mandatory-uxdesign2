@@ -5,7 +5,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import Header from './Components/Header/Header';
 import Main from './Components/Main/Main';
 import Quiz from './Components/Quiz/Quiz';
-import  FocusTrap from 'focus-trap-react';
+import FocusTrap from 'focus-trap-react';
 
   
 export default function App() {

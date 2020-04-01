@@ -1,4 +1,4 @@
-import react from 'react';
+import React from 'react';
 import reactDOM from 'react-dom';
 
 export default function Dialog (score){
