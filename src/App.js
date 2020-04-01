@@ -9,7 +9,7 @@ import  FocusTrap from 'focus-trap-react';
 
   
 export default function App() {
-  // const [score, setScore] = useState(null)
+  const [score, setScore] = useState(null)
   return (
     <HelmetProvider>
       <Router >

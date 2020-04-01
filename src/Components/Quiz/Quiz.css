@@ -1,13 +1,18 @@
-
+.mdc-form-field{
+    list-style: none;
+    display: block;
+}
 
 .quiz .mdc-list-item__text, .mdc-form-field, .mdc-list-item{
     overflow: visible;
     list-style: none;
+    display: block;
 }
 
 .quiz ~ .mdc-button{
     display: flex;
     flex-direction: column;
+    display: block;
 }
 
 form ul li{

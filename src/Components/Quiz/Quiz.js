@@ -3,11 +3,11 @@ import { Helmet } from 'react-helmet-async';
 import axios from 'axios';
 import './Quiz.css';
 import html from 'react-inner-html';
+//import Dialog  from '../Dialog.Dialog';
 
-export default function Quiz (){
+export default function Quiz (score){
     const [answers, setAnswers] = useState(new Array(10).fill(true));
     const [questions, setQuestions] = useState(null);
-    const [score, setScore] = useState(null);
     const [correctAnswers, setCorrectAnswers] = useState([]);
     
     useEffect(() => {
@@ -33,19 +33,20 @@ export default function Quiz (){
         console.log(correctAnswers)
     }
     
-    function onChange(e){
-        e.preventDefault()
-        setAnswers(value)
-    }
+    // function onChange(index, e){
+    //     e.preventDefault();
+    //     console.log(index)
+    //     setAnswers(!answers)
+    //     for(let i = 0; i <10; i++){
+    //         if(correctAnswers === answers){
+    //             score += 1
+    //         }
+    //     }
+    // }
     
-    function onSubmit(index){
-        for(let i = 0; i <10; i++)
-            if(correctAnswers === answers){
-                setScore(score += 1)
-            }
-        
+    function onSubmit(){
+        //<Dialog score={score}/>
     }
-
 
     function MyComponent( question ) {
         return <div {...html(question.question)} />;
@@ -65,55 +66,52 @@ export default function Quiz (){
                                 <span className="mdc-list-item__text">Q{index+1}</span>
                                 <span className="mds-list-item__text">{question.category}</span>
                                 <span className="mdc-list-item__text">{MyComponent(question)}</span>
-                                <ul>
-                                    <li>
-                                        <div className="mdc-form-field">
-                                            <div className="mdc-radio">
-                                                <input 
-                                                    className="mdc-radio__native-control" 
-                                                    type="radio" 
-                                                    id="radio-2" 
-                                                    name={`radio-${index}`} 
-                                                    checked={answers[index]}
-                                                    onChange={onChange}
-                                                    value='true'
-                                                />
-                                                <div className="mdc-radio__background">
-                                                    <div className="mdc-radio__outer-circle"></div>
-                                                    <div className="mdc-radio__inner-circle"></div>
-                                                </div>
-                                                <div className="mdc-radio__ripple"></div>
-                                            </div>
-                                            <label htmlFor="radio-2">True</label>
+
+                                <div className="mdc-form-field">
+                                    <div className="mdc-radio">
+                                        <input 
+                                            className="mdc-radio__native-control" 
+                                            type="radio" 
+                                            id="radio-2" 
+                                            name={`radio-${index}`} 
+                                            checked={answers[index]}
+                                            onChange={() => setAnswers(!answers)}
+                                        />
+                                        <div className="mdc-radio__background">
+                                            <div className="mdc-radio__outer-circle"></div>
+                                            <div className="mdc-radio__inner-circle"></div>
                                         </div>
-                                        <div className="mdc-form-field">
-                                            <div className="mdc-radio">
-                                                <input 
-                                                    className="mdc-radio__native-control" 
-                                                    type="radio" 
-                                                    id="radio-1" 
-                                                    name={`radio-${index}`} 
-                                                    checked={answers[index]}
-                                                    onChange={onChange}
-                                                    value='false'
-                                                />
-                                                <div className="mdc-radio__background">
-                                                    <div className="mdc-radio__outer-circle"></div>
-                                                    <div className="mdc-radio__inner-circle"></div>
-                                                </div>
-                                                <div className="mdc-radio__ripple"></div>
-                                            </div>
-                                            <label htmlFor="radio-1">False</label>
+                                        <div className="mdc-radio__ripple"></div>
+                                    </div>
+                                    <label htmlFor="radio-2">True</label>
+
+                                {/* //<div className="mdc-form-field"> */}
+                                    <div className="mdc-radio">
+                                        <input 
+                                            className="mdc-radio__native-control" 
+                                            type="radio" 
+                                            id="radio-1" 
+                                            name={`radio-${index}`} 
+                                            checked={!answers[index]}
+                                            onChange={() => setAnswers(!answers)}
+                                        />
+                                        <div className="mdc-radio__background">
+                                            <div className="mdc-radio__outer-circle"></div>
+                                            <div className="mdc-radio__inner-circle"></div>
                                         </div>
-                                    </li>
-                                </ul>
+                                        <div className="mdc-radio__ripple"></div>
+                                    </div>
+                                    <label htmlFor="radio-1">False</label>
+                                </div>
+                                
+                                {/* </div> */}
                             </li>
                         )
                     })}
                 </ul>
                 <button className="mdc-button" type='submit'>
                     <div className="mdc-button__ripple"></div>
-                    <span className="mdc-button__label">Button</span>
+                    <span className="mdc-button__label">Submit</span>
                 </button>
             </form>
             }

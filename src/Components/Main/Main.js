@@ -5,7 +5,6 @@ import Header from '../Header/Header';
 import './Main.css'
 
 export default function Main (){
-    // const [showQuiz, setShowQuiz] = useState('false')
     return(
         <div className='main'>
             <Helmet>

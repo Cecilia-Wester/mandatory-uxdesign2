@@ -1,5 +1,8 @@
 :root{
     width: 100vw;
+    --mdc-theme-primary: #118f89;
+    --mdc-theme-secondary: #946629;
+    --mdc-theme-background: #fff;
 }
 
 .App{
@@ -8,8 +11,4 @@
     margin-top: 1.5rem;
 }
 
-.main {
-    position: relative;
-    width: 100vw;
-    height: 95vh;
-}
+
