@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Link, Redirect} from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Link} from "react-router-dom";
 import { Helmet } from 'react-helmet-async';
 import Header from '../Header/Header';
 import './Main.css';
@@ -17,6 +17,6 @@ export default function Main (){
                     <span className="mdc-button__label" >Start Quiz</span>
                 </button>
             </Link>
-      </div>
+        </div>
     )
 }

@@ -3,6 +3,11 @@
     display: block;
 }
 
+.mdc-list {
+    margin-bottom: 70px;
+    position: relative;
+}
+
 .quiz .mdc-list-item__text, .mdc-form-field, .mdc-list-item{
     overflow: visible;
     list-style: none;
@@ -10,11 +15,22 @@
 }
 
 .quiz ~ .mdc-button{
-    display: flex;
-    flex-direction: column;
     display: block;
+    bottom:-70px;
+    border-top: 70px;
 }
 
 form ul li{
     margin-top: 70px
+}
+
+.mdc-list-item{
+    margin-bottom: 20px;
+}
+
+.loadingText{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }

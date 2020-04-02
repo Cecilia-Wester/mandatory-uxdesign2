@@ -1,0 +1,16 @@
+.mdc-dialog{
+    display: block;  
+}
+
+.mdc-dialog__container{
+    opacity: 1;
+}
+
+.mdc-dialog .mdc-dialog__scrim {
+    opacity: 1;
+    background-color: rgba(82, 77, 77, 0.171);
+}
+
+a{
+    text-decoration: none;
+}
